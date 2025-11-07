@@ -1,56 +1,101 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>小依的个人主页</title>
-  <meta name="description" content="一个叫小依的家伙，可爱的小依依" />
-  <meta name="keywords" content="小依, 全栈, 宅属性" />
-  <meta name="author" content="molanp" />
-  <meta name="language" content="zh-CN" />
-  <link rel="canonical" href="https://awkchan.top/" />
-  <link href="//fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/tailwindcss.css" />
-</head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-[Quicksand] transition-all">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小依的个人主页</title>
+    <meta name="description" content="一个叫小依的家伙，可爱的小依依" />
+    <meta name="keywords" content="小依, 全栈, 宅属性" />
+    <meta name="author" content="molanp" />
+    <meta name="language" content="zh-CN" />
+    <link rel="canonical" href="https://awkchan.top/" />
+    <link
+      href="//fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/tailwindcss.css" />
+  </head>
+  <body
+    class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-[Quicksand] transition-all"
+  >
+    <h1 class="text-3xl font-bold mb-4">小依的主页鸭</h1>
 
-  <!-- 顶部导航栏 -->
-  <nav class="w-full bg-white dark:bg-gray-900 shadow-sm fixed top-0 z-40">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center text-mint font-semibold">
-      <div class="flex gap-6">
-        <a href="#" class="hover:underline">主页</a>
-        <a href="server.html" class="hover:underline">MC服务器</a>
+    <!-- 顶部导航栏 -->
+    <nav class="w-full bg-white dark:bg-gray-900 shadow-sm fixed top-0 z-40">
+      <div
+        class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center text-mint font-semibold"
+      >
+        <div class="flex gap-6">
+          <a href="#" class="hover:underline">主页</a>
+          <a href="server.html" class="hover:underline">MC服务器</a>
+        </div>
       </div>
-    </div>
-  </nav>
-  <br/>
+    </nav>
+    <br />
 
-  <!-- 主封面 -->
-  <header class="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-mint to-cyan-500 text-center px-4 pt-20">
-    <h1 class="text-5xl font-bold mb-4">AwkChan</h1>
-    <p class="text-sm mb-6">Contact: <a href="mailto:molanpp@outlook.com" class="underline">molanpp@outlook.com</a> · Donate: <a href="//afdian.com/a/mikk3" target="_blank" class="underline" rel="nofollow noopener noreferrer">afdian.com/a/mikk3</a></p>
-  </header>
+    <!-- 主封面 -->
+    <header
+      class="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-mint to-cyan-500 text-center px-4 pt-20"
+    >
+      <p class="text-sm mb-6">
+        Contact:
+        <a href="mailto:molanpp@outlook.com" class="underline"
+          >molanpp@outlook.com</a
+        >
+        · Donate:
+        <a
+          href="//afdian.com/a/mikk3"
+          target="_blank"
+          class="underline"
+          rel="nofollow noopener noreferrer"
+          >afdian.com/a/mikk3</a
+        >
+      </p>
+    </header>
 
-  <!-- 项目文档 -->
-  <main id="projects" class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-xl font-semibold mb-4 text-center">📁 项目文档</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition">
-        <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">MCSManager SDK</h3>
-        <p class="mb-4">用于与 MCSManager 面板交互的轻量级 SDK，支持服务管理与自动化操作。</p>
-        <a href="//mcsmapi.awkchan.top" target="_blank" title="查看 MCSManager SDK 文档" class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition">查看文档</a>
-      </article>
-    </div>
-  </main>
+    <!-- 项目文档 -->
+    <main id="projects" class="max-w-5xl mx-auto px-4 py-10">
+      <h2 class="text-xl font-semibold mb-4 text-center">📁 项目</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition"
+        >
+          <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
+            MCSMAPI
+          </h3>
+          <p class="mb-4">
+            用于与 MCSManager 面板交互的轻量级 SDK，支持服务管理与自动化操作。
+          </p>
+          <a
+            href="//mcsmapi.awkchan.top"
+            target="_blank"
+            title="查看"
+            class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
+            >查看</a
+          >
+        </article>
+      </div>
+    </main>
 
-  <!-- 页脚 -->
-  <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
-    <p>
-      <a href="//icp.gov.moe/?keyword=20250395" target="_blank" rel="noopener" class="underline">萌ICP备 20250395号</a>
-      <a href="//icp.redcha.cn/beian/ICP-2025100183.html" target="_blank" rel="noopener" class="underline">茶ICP备 2025100183号</a> 
-    </p>
-    <p class="mt-1">© 2025 molanp & AwkChan</p>
-  </footer>
-
-</body>
+    <!-- 页脚 -->
+    <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
+      <p>
+        <a
+          href="//icp.gov.moe/?keyword=20250395"
+          target="_blank"
+          rel="noopener"
+          class="underline"
+          >萌ICP备 20250395号</a
+        >
+        <a
+          href="//icp.redcha.cn/beian/ICP-2025100183.html"
+          target="_blank"
+          rel="noopener"
+          class="underline"
+          >茶ICP备 2025100183号</a
+        >
+      </p>
+      <p class="mt-1">© 2025 molanp & AwkChan</p>
+    </footer>
+  </body>
 </html>
