@@ -14,11 +14,51 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/tailwindcss.css" />
+    <style>
+      .bubble {
+        background-color: #e0f7fa;
+        border-radius: 20px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        position: relative;
+        max-width: 80%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      }
+      .bubble::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 1rem solid transparent;
+        border-bottom-color: #e0f7fa;
+        border-top: 0;
+        left: -1rem;
+      }
+      .bubble-content {
+        padding-left: 1rem;
+      }
+      .bubble-author {
+        font-size: 0.875rem;
+        color: #555;
+        text-align: right;
+        margin-top: 0.5rem;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body
     class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-[Quicksand] transition-all"
   >
-    <h1 class="text-3xl font-bold mb-4">小依的主页鸭</h1>
+    <h1 class="text-3xl font-bold mb-4 text-center">小依的主页鸭</h1>
 
     <!-- 顶部导航栏 -->
     <nav class="w-full bg-white dark:bg-gray-900 shadow-sm fixed top-0 z-40">
@@ -26,7 +66,7 @@
         class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center text-mint font-semibold"
       >
         <div class="flex gap-6">
-          <a href="#" class="hover:underline">主页</a>
+          <a href="/" class="hover:underline">主页</a>
           <a href="server.html" class="hover:underline">MC服务器</a>
         </div>
       </div>
@@ -51,28 +91,53 @@
           >afdian.com/a/mikk3</a
         >
       </p>
+      <img
+        src="https://avatars.githubusercontent.com/u/104612722"
+        alt="Github Avatar"
+        style="width: 128px; height: auto;"
+        class="rounded-full mb-4 shadow-md"
+        id="avatar"
+        onclick="startRotation()"
+      />
     </header>
 
     <!-- 项目文档 -->
     <main id="projects" class="max-w-5xl mx-auto px-4 py-10">
-      <h2 class="text-xl font-semibold mb-4 text-center">📁 项目</h2>
+      <h2 class="text-xl font-semibold mb-4 text-center">📁 小依的项目</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <article
-          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition"
-        >
-          <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
-            MCSMAPI
-          </h3>
-          <p class="mb-4">
-            用于与 MCSManager 面板交互的轻量级 SDK，支持服务管理与自动化操作。
-          </p>
-          <a
-            href="//mcsmapi.awkchan.top"
-            target="_blank"
-            title="查看"
-            class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
-            >查看</a
-          >
+        <article class="bubble">
+          <div class="bubble-content">
+            <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
+              MCSMAPI
+            </h3>
+            <p class="mb-4">
+              用于与 MCSManager 面板交互的轻量级 SDK，支持服务管理与自动化操作。
+            </p>
+            <a
+              href="//mcsmapi.awkchan.top"
+              target="_blank"
+              title="查看"
+              class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
+              >查看</a
+            >
+          </div>
+          <div class="bubble-author">Github</div>
+        </article>
+        <article class="bubble">
+          <div class="bubble-content">
+            <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
+              nonebot-adapter-yunhu
+            </h3>
+            <p class="mb-4">为 Nonebot 框架提供的云湖 (Yunhu) 平台适配器。</p>
+            <a
+              href="//yunhu.awkchan.top"
+              target="_blank"
+              title="查看"
+              class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
+              >查看</a
+            >
+          </div>
+          <div class="bubble-author">Github</div>
         </article>
       </div>
     </main>
@@ -97,5 +162,22 @@
       </p>
       <p class="mt-1">© 2025 molanp & AwkChan</p>
     </footer>
+    <script>
+      var avatar = document.getElementById("avatar");
+      function startRotation() {
+        // 生成随机旋转角度（0到360度之间的随机角度）
+        var randomAngle = Math.floor(Math.random() * 360);
+        // 随机生成旋转持续时间（1到5秒）
+        var randomDuration = Math.floor(Math.random() * 5) + 1;
+
+        // 应用旋转动画
+        avatar.style.transition = `transform ${randomDuration}s ease-in-out`;
+        avatar.style.transform = `rotate(${randomAngle}deg)`;
+
+        setTimeout(function () {
+          avatar.style.animation = "";
+        }, randomDuration * 1000); // 转换为毫秒
+      }
+    </script>
   </body>
 </html>

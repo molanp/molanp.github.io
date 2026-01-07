@@ -24,12 +24,43 @@
       .hidden {
         display: none;
       }
+      .bubble {
+        background-color: #e0f7fa;
+        border-radius: 20px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        position: relative;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      }
+      .bubble::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 1rem solid transparent;
+        border-bottom-color: #e0f7fa;
+        border-top: 0;
+        left: -1rem;
+      }
+      .bubble-content {
+        padding-left: 1rem;
+      }
+      .bubble-author {
+        font-size: 0.875rem;
+        color: #555;
+        text-align: right;
+        margin-top: 0.5rem;
+      }
     </style>
   </head>
   <body
     class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-[Quicksand] transition-all"
   >
-    <h1 class="text-3xl font-bold mb-6">Minecraft 基岩版服务器状态</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Minecraft 基岩版服务器状态
+    </h1>
     <!-- 顶部导航栏 -->
     <nav class="w-full bg-white dark:bg-gray-900 shadow-sm fixed top-0 z-40">
       <div
@@ -46,30 +77,32 @@
     <!-- 内容区 -->
     <main class="max-w-3xl mx-auto px-4 py-24 text-center">
       <!-- 状态展示区 -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 text-left"
-      >
-        <p class="mb-2">
-          <strong>MOTD：</strong> <span id="motd">{{ motd }}</span>
-        </p>
-        <p class="mb-2">
-          <strong>在线人数：</strong>
-          <span id="players">{{ online }}/{{ max }}</span>
-        </p>
-        <p class="mb-2">
-          <strong>地图：</strong> <span id="map">{{ map }}</span>
-        </p>
-        <p class="mb-2">
-          <strong>版本：</strong> <span id="version">{{ version }}</span>
-        </p>
-        <p class="mb-2">
-          <strong>状态：</strong> <span id="status">{{ status }}</span>
-        </p>
+      <div class="bubble">
+        <div class="bubble-content">
+          <p class="mb-2">
+            <strong>MOTD：</strong><span id="motd">{{ motd }}</span>
+          </p>
+          <p class="mb-2">
+            <strong>在线人数：</strong
+            ><span id="players">{{ online }}/{{ max }} 人</span>
+          </p>
+          <p class="mb-2">
+            <strong>地图：</strong><span id="map">{{ map }}</span>
+          </p>
+          <p class="mb-2">
+            <strong>版本：</strong><span id="version">{{ version }}</span>
+          </p>
+          <p class="mb-2">
+            <strong>状态：</strong><span id="status">{{ status }}</span>
+          </p>
+        </div>
       </div>
 
       <!-- 异常提示 -->
-      <div id="error" class="mt-4 text-sm text-red-500 hidden">
-        无法获取服务器状态，请稍后重试。
+      <div id="error" class="mt-4 text-sm text-red-500 hidden bubble">
+        <div class="bubble-content">
+          无法获取服务器状态，请稍后重试(<span id="errText"></span>)
+        </div>
       </div>
 
       <p class="mt-4 text-sm text-gray-500">
@@ -78,6 +111,7 @@
           href="https://api.imlazy.ink/#/mcapi"
           target="_blank"
           rel="nofollow noopener"
+          class="underline"
           >雫 API</a
         >
         提供 · 实时刷新
@@ -99,7 +133,7 @@
           target="_blank"
           rel="noopener"
           class="underline"
-          >茶ICP备2025100183号</a
+          >茶ICP备 2025100183号</a
         >
       </p>
       <p class="mt-1">© 2025 molanp & AwkChan</p>
@@ -109,12 +143,22 @@
     <script>
       async function fetchServerStatus() {
         const errorEl = document.getElementById("error");
+        const errTextEl = document.getElementById("errText");
 
         try {
-          const response = await fetch(
+          let response;
+          response = await fetch(
             "https://api.imlazy.ink/mcapi/?host=mc.awkchan.top:11000&type=json&be=true"
           );
-          if (!response.ok) throw new Error("响应异常");
+
+          if (!response.ok) {
+            const text = await response.text().catch(() => "");
+            throw new Error(
+              `HTTP ${response.status} ${response.statusText}${
+                text ? " - " + text : ""
+              }`
+            );
+          }
 
           const data = await response.json();
 
@@ -127,14 +171,16 @@
           document.getElementById("map").textContent = data.map;
 
           errorEl.classList.add("hidden");
+          errTextEl.textContent = "";
         } catch (error) {
           console.error("获取服务器状态失败：", error);
           errorEl.classList.remove("hidden");
+          errTextEl.textContent =
+            error && error.message ? error.message : String(error);
         }
       }
-
       fetchServerStatus();
-      setInterval(fetchServerStatus, 10000);
+      setInterval(fetchServerStatus, 15000);
     </script>
   </body>
 </html>
