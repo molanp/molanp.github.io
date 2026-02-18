@@ -1,151 +1,159 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>小依的个人主页</title>
-    <meta name="description" content="一个叫小依的家伙，可爱的小依依" />
-    <meta name="keywords" content="小依, 全栈, 宅属性" />
-    <meta name="author" content="molanp" />
-    <meta name="language" content="zh-CN" />
-    <link rel="canonical" href="https://awkchan.top/" />
-    <link
-      href="//fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/tailwindcss.css" />
-    <style>
-      .bubble {
-        background-color: #e0f7fa;
-        border-radius: 20px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        position: relative;
-        max-width: 80%;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      }
-      .bubble::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 0;
-        height: 0;
-        border: 1rem solid transparent;
-        border-bottom-color: #e0f7fa;
-        border-top: 0;
-        left: -1rem;
-      }
-      .bubble-content {
-        padding-left: 1rem;
-      }
-      .bubble-author {
-        font-size: 0.875rem;
-        color: #555;
-        text-align: right;
-        margin-top: 0.5rem;
-      }
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-  </head>
-  <body
-    class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-[Quicksand] transition-all"
-  >
-    <h1 class="text-3xl font-bold mb-4 text-center">小依的主页鸭</h1>
 
-    <!-- 顶部导航栏 -->
-    <nav class="w-full bg-white dark:bg-gray-900 shadow-sm fixed top-0 z-40">
-      <div
-        class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center text-mint font-semibold"
-      >
-        <div class="flex gap-6">
-          <a href="/" class="hover:underline">主页</a>
-          <a href="server.html" class="hover:underline">MC服务器</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Molanp's Homepage</title>
+  <meta name="description" content="小依的个人主页.molanp's personal homepage" />
+  <meta name="keywords" content="小依, 全栈, 宅属性, molanp" />
+  <meta name="author" content="molanp" />
+  <meta name="language" content="en-us" />
+  <link rel="canonical" href="https://awkchan.top/" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .navbar, #navbar, .footer {
+      background-color: #1f1f1f;
+    }
+    .navbar-item, .navbar-link {
+      color: #e0e0e0 !important;
+    }
+    .hero {
+      background-color: #1a1a1a;
+    }
+    .card {
+      background: #1a1b1c;
+      color: #e0e0e0;
+    }
+    .box {
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+    section *:hover {
+      transform: rotate(1deg);
+    }
+    del {
+      color: #999999;
+      font-size: 0.8rem;
+    }
+    .button {
+      vertical-align: text-medium;
+    }
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+  </style>
+</head>
+
+<body class="has-navbar-fixed-top">
+  <nav class="navbar is-transparent is-fixed-top">
+    <div class="navbar-brand">
+      <span class="navbar-item">Molanp</span>
+      <div class="navbar-burger js-burger" data-target="navbar">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div id="navbar" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#home">Home</a>
+        <a class="navbar-item" href="#about">About</a>
+        <a class="navbar-item" href="#works">Works</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 首页 -->
+  <section id="home" class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <figure class="image is-128x128 is-inline-block">
+          <img class="is-rounded" src="https://avatars.githubusercontent.com/u/104612722">
+        </figure>
+        <p class="has-text-grey-light">🎐  永遠に私のそばにいてください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我 -->
+  <section id="about" class="section">
+    <div class="container content">
+      <h2 class="title has-text-light">ABOUT ME</h2>
+      <p><del>Senior Sleep Engineer 🛌</del></p>
+      <p>I enjoy creating
+      <button class="button is-dark is-small">
+        <span class="icon">
+          <i class="fa fa-github"></i>
+        </span>
+        <a href="https://github.com/molanp?tab=repositories">useful and fun projects</a>
+      </button>
+      , or sometimes just little toys.Most of my projects are inspired by my own ideas and everyday experiences.</p>
+      <p>What I’ve done may be modest, but I simply wanted to leave a mark.</p>
+      <p>
+        <span class="tag is-dark">Donate Me&nbsp;<a href="//afdian.com/a/mikk3">afdian.com/a/mikk3</a></span>
+      </p>
+    </div>
+  </section>
+
+  <section id="works" class="section">
+    <div class="container content">
+      <h2 class="title has-text-light">WORKS</h2>
+      <div class="columns is-multiline">
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-6 has-text-light">MCSMAPI</p>
+              <p class="has-text-grey-light">A lightweight wrapper around the MCSManager API, featuring action chains for streamlined management.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="//github.com/molanp/mcsmapi" class="card-footer-item">LINK</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-6 has-text-light">NONEBOT_PLUGIN_MCCHECK</p>
+              <p class="has-text-grey-light">A NoneBot plugin for querying Minecraft server status, with IPv6 support.</p>
+            </div>
+            <footer class="card-footer">
+              <a href="//github.com/molanp/nonebot_plugin_mccheck" class="card-footer-item">LINK</a>
+            </footer>
+          </div>
         </div>
       </div>
-    </nav>
-    <br />
+    </div>
+  </section>
 
-    <!-- 主封面 -->
-    <header
-      class="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-mint to-cyan-500 text-center px-4 pt-20"
-    >
-      <p class="text-sm mb-6">
-        Contact:
-        <a href="mailto:molanpp@outlook.com" class="underline"
-          >molanpp@outlook.com</a
-        >
-        · Donate:
-        <a
-          href="//afdian.com/a/mikk3"
-          target="_blank"
-          class="underline"
-          rel="nofollow noopener noreferrer"
-          >afdian.com/a/mikk3</a
-        >
-      </p>
-      <img
-        src="https://avatars.githubusercontent.com/u/104612722"
-        alt="Github Avatar"
-        style="width: 128px; height: auto;"
-        class="rounded-full mb-4 shadow-md"
-        id="avatar"
-        onclick="startRotation()"
-      />
-    </header>
+  <section class="section">
+    <div class="container">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fa fa-envelope-o"></i>
+          </span>
+          <a href="mailto:molanpp@outlook.com">molanpp@outlook.com</a>
+        </span>
+        <br>
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fa fa-github"></i>
+          </span>
+          <a href="//github.com/molanp">molanp</a>
+        </span>
+    </div>
+  </section>
 
-    <!-- 项目文档 -->
-    <main id="projects" class="max-w-5xl mx-auto px-4 py-10">
-      <h2 class="text-xl font-semibold mb-4 text-center">📁 小依的项目</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <article class="bubble">
-          <div class="bubble-content">
-            <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
-              MCSMAPI
-            </h3>
-            <p class="mb-4">
-              用于与 MCSManager 面板交互的轻量级 SDK，支持服务管理与自动化操作。
-            </p>
-            <a
-              href="//mcsmapi.awkchan.top"
-              target="_blank"
-              title="查看"
-              class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
-              >查看</a
-            >
-          </div>
-          <div class="bubble-author">Github</div>
-        </article>
-        <article class="bubble">
-          <div class="bubble-content">
-            <h3 class="text-lg font-semibold text-mint dark:text-accent mb-2">
-              nonebot-adapter-yunhu
-            </h3>
-            <p class="mb-4">为 Nonebot 框架提供的云湖 (Yunhu) 平台适配器。</p>
-            <a
-              href="//yunhu.awkchan.top"
-              target="_blank"
-              title="查看"
-              class="inline-block bg-mint text-white px-4 py-2 rounded hover:bg-mint-dark transition"
-              >查看</a
-            >
-          </div>
-          <div class="bubble-author">Github</div>
-        </article>
-      </div>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
-      <p>
-        <a
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content is-small has-text-centered">
+      <p>© 2025-2026 molanp.Created in the dead of night.</p>
+      <hr>
+      <a
           href="//icp.gov.moe/?keyword=20250395"
           target="_blank"
           rel="noopener"
@@ -159,25 +167,21 @@
           class="underline"
           >茶ICP备 2025100183号</a
         >
-      </p>
-      <p class="mt-1">© 2025 molanp & AwkChan</p>
-    </footer>
-    <script>
-      var avatar = document.getElementById("avatar");
-      function startRotation() {
-        // 生成随机旋转角度（0到360度之间的随机角度）
-        var randomAngle = Math.floor(Math.random() * 360);
-        // 随机生成旋转持续时间（1到5秒）
-        var randomDuration = Math.floor(Math.random() * 5) + 1;
+    </div>
+  </footer>
 
-        // 应用旋转动画
-        avatar.style.transition = `transform ${randomDuration}s ease-in-out`;
-        avatar.style.transform = `rotate(${randomAngle}deg)`;
-
-        setTimeout(function () {
-          avatar.style.animation = "";
-        }, randomDuration * 1000); // 转换为毫秒
-      }
-    </script>
-  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
+</body>
 </html>
