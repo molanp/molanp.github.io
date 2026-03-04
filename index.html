@@ -1,188 +1,122 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Molanp's Homepage</title>
-  <meta name="description" content="小依的个人主页.molanp's personal homepage" />
-  <meta name="keywords" content="小依, 全栈, 宅属性, molanp" />
+
+  <meta name="description" content="小依的个人主页" />
   <meta name="author" content="molanp" />
-  <meta name="language" content="en-us" />
-  <link rel="canonical" href="https://awkchan.top/" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css" rel="stylesheet">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/104612722">
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+    // 这里的配置让 Tailwind 支持系统的深色模式切换
+    tailwind.config = {
+      darkMode: 'media', // 自动跟随系统设置
+    }
+  </script>
+
   <style>
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
+    /* 基础背景色，确保在加载 Tailwind 前不闪白 */
+    body { background-color: #fcfcf9; transition: background-color 0.3s ease; }
+    @media (prefers-color-scheme: dark) {
+      body { background-color: #0f172a; }
     }
-    .navbar, #navbar, .footer {
-      background-color: #1f1f1f;
-    }
-    .navbar-item, .navbar-link {
-      color: #e0e0e0 !important;
-    }
-    .hero {
-      background-color: #1a1a1a;
-    }
-    .card {
-      background: #1a1b1c;
-      color: #e0e0e0;
-    }
-    .box {
-      background-color: #1f1f1f;
-      color: #e0e0e0;
-    }
-    p:hover {
-      transform: rotate(1deg);
-    }
-    del {
-      color: #999999;
-      font-size: 0.8rem;
-    }
-    .button {
-      vertical-align: text-medium;
-    }
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
+    .soft-card { transition: all 0.3s ease; }
   </style>
 </head>
 
-<body class="has-navbar-fixed-top">
-  <nav class="navbar is-transparent is-fixed-top">
-    <div class="navbar-brand">
-      <span class="navbar-item">Molanp</span>
-      <div class="navbar-burger js-burger" data-target="navbar">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-    <div id="navbar" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="#home">主页</a>
-        <a class="navbar-item" href="#about">关于</a>
-        <a class="navbar-item" href="#works">作品</a>
+<body class="antialiased text-slate-700 dark:text-slate-300 bg-[#fcfcf9] dark:bg-slate-950">
+
+  <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <span class="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Molanp</span>
+      <div class="flex space-x-6 text-sm font-medium">
+        <a href="#home" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">主页</a>
+        <a href="#about" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">关于</a>
+        <a href="#works" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">作品</a>
       </div>
     </div>
   </nav>
 
-  <!-- 首页 -->
-  <section id="home" class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <figure class="image is-128x128 is-inline-block">
-          <img class="is-rounded" src="https://avatars.githubusercontent.com/u/104612722">
-        </figure>
-        <p class="has-text-grey-light">🎐  永遠に私のそばにいてください</p>
-      </div>
+  <section id="home" class="pt-32 pb-16 flex flex-col items-center">
+    <div class="relative group">
+      <img class="w-24 h-24 rounded-full border-4 border-white dark:border-slate-800 shadow-xl" src="https://avatars.githubusercontent.com/u/104612722">
+      <span class="absolute -bottom-1 -right-1 text-2xl group-hover:scale-110 transition-transform">🎐</span>
     </div>
+    <p class="mt-6 text-slate-400 dark:text-slate-500 text-sm tracking-widest font-light italic">永遠に私のそばにいてください</p>
   </section>
 
-  <!-- 关于我 -->
-  <section id="about" class="section">
-    <div class="container content">
-      <h2 class="title has-text-light">关于我</h2>
-      <p><del>高级睡觉工程师 🛌</del></p>
-      <p>我喜欢创建
-      <button class="button is-dark is-small">
-        <span class="icon">
-          <i class="fa fa-github"></i>
-        </span>
-        <a href="https://github.com/molanp?tab=repositories" target="_blank">一些有用有趣的项目</a>
-      </button>
-      或一些玩具。大多项目的产生源于我自身的需要。</p>
-      <p>我只是想让自己被认为有用</p>
-      <p>
-        <span class="tag is-dark">Donate Me&nbsp;<a href="//afdian.com/a/mikk3" target="_blank" rel="noopener">afdian.com/a/mikk3</a></span>
-      </p>
-    </div>
-  </section>
-
-  <section id="works" class="section">
-    <div class="container content">
-      <h2 class="title has-text-light">作品</h2>
-      <div class="columns is-multiline">
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-6 has-text-light">MCSMAPI</p>
-              <p class="has-text-grey-light">一个帮助开发者更好的使用MCSM的py-SDK</p>
-            </div>
-            <footer class="card-footer">
-              <a href="//mcsmapi.awkchan.top" target="_blank" class="card-footer-item">文档</a>
-              <a href="//github.com/molanp/mcsmapi" target="_blank" class="card-footer-item">链接</a>
-            </footer>
-          </div>
+  <section id="about" class="max-w-2xl mx-auto px-6 py-8">
+    <div class="soft-card bg-white dark:bg-slate-900 p-8 md:p-10 rounded-[2rem] shadow-sm border border-gray-50 dark:border-slate-800">
+      <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center">
+        <span class="w-8 h-1.5 bg-sky-400 dark:bg-sky-500 rounded-full mr-3"></span>关于我
+      </h2>
+      <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p><del class="text-slate-300 dark:text-slate-600 italic text-sm">高级睡觉工程师 🛌</del></p>
+        <p>
+          我喜欢创建 
+          <a href="https://github.com/molanp?tab=repositories" target="_blank" class="text-sky-500 dark:text-sky-400 font-semibold underline decoration-sky-100 dark:decoration-sky-900/50 underline-offset-4 hover:decoration-sky-400 transition-all">
+            一些有用有趣的项目
+          </a> 
+          或一些玩具。大多项目的产生源于我自身的需要。
+        </p>
+        <p class="pt-4 text-slate-400 dark:text-slate-500 text-sm border-t border-gray-50 dark:border-slate-800/50 italic font-light">
+          “在创造中寻找共鸣，以此确认自己对这世界仍有价值。”
+        </p>
+        <div class="pt-4">
+          <a href="//afdian.com/a/mikk3" target="_blank" class="inline-block px-6 py-2 rounded-full bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 text-xs font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition-colors">
+            Donate Me
+          </a>
         </div>
-        <div class="column is-one-third">
-  <div class="card">
-    <div class="card-content">
-      <p class="title is-6 has-text-light">EMOJI_HUB</p>
-      <p class="has-text-grey-light">社交媒体表情资源托管中心</p>
-    </div>
-    <footer class="card-footer">
-      <a href="//emoji.awkchan.top/" target="_blank" class="card-footer-item">链接</a>
-    </footer>
-  </div>
-</div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-        <span class="icon-text">
-          <span class="icon">
-            <i class="fa fa-envelope-o"></i>
-          </span>
-          <a href="mailto:molanpp@outlook.com">molanpp@outlook.com</a>
-        </span>
-        <br>
-        <span class="icon-text">
-          <span class="icon">
-            <i class="fa fa-github"></i>
-          </span>
-          <a href="//github.com/molanp" target="_blank">molanp</a>
-        </span>
+  <section id="works" class="max-w-4xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-8 px-2 flex items-center">
+      <span class="w-8 h-1.5 bg-sky-400 dark:bg-sky-500 rounded-full mr-3"></span>作品
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="soft-card bg-white dark:bg-slate-900 p-8 rounded-[2rem] group hover:-translate-y-1 transition-all border border-transparent hover:border-sky-100 dark:hover:border-sky-900/30 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-sky-500 transition-colors">MCSMAPI</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">专为 MCSM 设计的 Python 开发套件，致力于将复杂的交互抽象为优雅的代码，让面板管理从未如此简单。</p>
+        <div class="flex space-x-4">
+          <a href="//mcsmapi.awkchan.top" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 font-bold hover:underline">文档</a>
+          <a href="//github.com/molanp/mcsmapi" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 font-bold hover:underline">GitHub</a>
+        </div>
+      </div>
+
+      <div class="soft-card bg-white dark:bg-slate-900 p-8 rounded-[2rem] group hover:-translate-y-1 transition-all border border-transparent hover:border-sky-100 dark:hover:border-sky-900/30 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-sky-500 transition-colors">EMOJI_HUB</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">跨平台的社交媒体表情资源托管中心，旨在为每一次线上交流注入更多情绪与温度。</p>
+        <div class="flex space-x-4">
+          <a href="//emoji.awkchan.top/" target="_blank" class="text-xs text-sky-500 dark:text-sky-400 font-bold hover:underline">立即访问</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="content is-small has-text-centered">
-      <p>© 2025-2026 molanp.Created in the dead of night.</p>
-      <hr>
-      <a
-          href="//icp.gov.moe/?keyword=20250395"
-          target="_blank"
-          rel="noopener"
-          class="underline"
-          >萌ICP备 20250395号</a
-        >
-        <a
-          href="//icp.redcha.cn/beian/ICP-2025100183.html"
-          target="_blank"
-          rel="noopener"
-          class="underline"
-          >茶ICP备 2025100183号</a
-        >
+  <footer class="max-w-2xl mx-auto px-6 py-20 text-center">
+    <div class="space-y-4 mb-12">
+      <p class="text-xs text-slate-400 dark:text-slate-600 tracking-widest uppercase font-semibold">Say Hello</p>
+      <div class="flex justify-center space-x-8">
+        <a href="mailto:molanpp@outlook.com" class="text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-all scale-110 hover:scale-125"><i class="fa fa-envelope-o text-xl"></i></a>
+        <a href="//github.com/molanp" target="_blank" class="text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-all scale-110 hover:scale-125"><i class="fa fa-github text-xl"></i></a>
+      </div>
+    </div>
+    <div class="text-[11px] text-slate-300 dark:text-slate-700 space-y-2 font-medium">
+      <p>© 2025-2026 Molanp. Created in the dead of night.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="//icp.gov.moe/?keyword=20250395" target="_blank" class="hover:text-sky-400 transition-colors">萌ICP备 20250395号</a>
+        <a href="//icp.redcha.cn/beian/ICP-2025100183.html" target="_blank" class="hover:text-sky-400 transition-colors">茶ICP备 2025100183号</a>
+      </div>
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      $navbarBurgers.forEach(el => {
-        el.addEventListener('click', () => {
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
