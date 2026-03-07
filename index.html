@@ -1,166 +1,176 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Molanp's Homepage</title>
-  <meta name="description" content="小依的个人主页.molanp's personal homepage" />
-  <meta name="keywords" content="小依, 全栈, 宅属性, molanp" />
-  <meta name="author" content="molanp" />
-  <meta name="language" content="en-us" />
-  <link rel="canonical" href="https://awkchan.top/" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css" rel="stylesheet">
+
+  <meta name="description" content="小依 (molanp) 的个人主页" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/104612722" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/104612722">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <style>
+    /* 固化的精简版样式，直接适配深浅模式 */
+    :root {
+      --bg: #fcfcf9;
+      --text: #475569;
+      --card: #ffffff;
+      --accent: #0ea5e9;
+      --border: #f1f5f9;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #94a3b8;
+        --card: #1e293b;
+        --accent: #38bdf8;
+        --border: #334155;
+      }
+    }
+
+    * { box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .navbar, #navbar, .footer {
-      background-color: #1f1f1f;
+
+    .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(252, 252, 249, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
-    .navbar-item, .navbar-link {
-      color: #e0e0e0 !important;
+    @media (prefers-color-scheme: dark) { nav { background: rgba(15, 23, 42, 0.8); } }
+    
+    .nav-content {
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
     }
-    .hero {
-      background-color: #1a1a1a;
+    .nav-links a {
+      margin-left: 1.5rem; text-decoration: none; color: inherit; font-size: 0.875rem; font-weight: 500;
     }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding: 8rem 0 4rem; text-align: center; }
+    .avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 4px solid var(--card); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .motto { margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8; font-style: italic; }
+
+    /* Sections */
+    .section { padding: 3rem 0; }
     .card {
-      background: #1a1b1c;
-      color: #e0e0e0;
+      background: var(--card); padding: 2.5rem; border-radius: 2rem;
+      border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .box {
-      background-color: #1f1f1f;
-      color: #e0e0e0;
+    .title { color: #1e293b; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; }
+    @media (prefers-color-scheme: dark) { .title { color: #f1f5f9; } }
+    .title::before { content: ""; width: 32px; height: 6px; background: var(--accent); border-radius: 3px; margin-right: 12px; }
+
+    /* Works Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .work-card {
+      background: var(--card); padding: 2rem; border-radius: 2rem; border: 1px solid var(--border);
+      text-decoration: none; color: inherit; transition: transform 0.3s;
     }
-    p:hover {
-      transform: rotate(1deg);
+    .work-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .work-title { font-weight: 700; font-size: 1.125rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .work-desc { font-size: 0.875rem; margin-bottom: 1.5rem; }
+
+    /* Buttons & Links */
+    .btn-donate {
+      display: inline-block; padding: 0.5rem 1.25rem; background: #f0f9ff; color: #0369a1;
+      border-radius: 9999px; text-decoration: none; font-size: 0.75rem; font-weight: 700;
     }
-    del {
-      color: #999999;
-      font-size: 0.8rem;
-    }
-    .button {
-      vertical-align: text-medium;
-    }
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
+    @media (prefers-color-scheme: dark) { .btn-donate { background: rgba(14, 165, 233, 0.1); color: var(--accent); } }
+    
+    footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); }
+    .social-links a { font-size: 1.5rem; margin: 0 1rem; color: #94a3b8; text-decoration: none; }
+    .social-links a:hover { color: var(--accent); }
+    .icp { font-size: 10px; color: #cbd5e1; margin-top: 2rem; }
   </style>
 </head>
-<body class="has-navbar-fixed-top">
-  <nav class="navbar is-transparent is-fixed-top">
-    <div class="navbar-brand">
-      <span class="navbar-item">Molanp</span>
-      <div class="navbar-burger js-burger" data-target="navbar">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-    <div id="navbar" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="#home">主页</a>
-        <a class="navbar-item" href="#about">关于</a>
-        <a class="navbar-item" href="#works">作品</a>
+
+<body>
+  <nav>
+    <div class="container nav-content">
+      <span style="font-weight: 800; font-size: 1.25rem;">Molanp</span>
+      <div class="nav-links">
+        <a href="#home">主页</a>
+        <a href="#about">关于</a>
+        <a href="#works">作品</a>
       </div>
     </div>
   </nav>
-  <!-- 首页 -->
-  <section id="home" class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <figure class="image is-128x128 is-inline-block">
-          <img class="is-rounded" src="https://avatars.githubusercontent.com/u/104612722">
-        </figure>
-        <p class="has-text-grey-light">🎐 永遠に私のそばにいてください</p>
+
+  <section id="home" class="hero container">
+    <div style="position: relative; display: inline-block;">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/104612722">
+      <span style="position: absolute; bottom: 0; right: 0; font-size: 1.5rem;">🎐</span>
+    </div>
+    <p class="motto">永遠に私のそばにいてください</p>
+  </section>
+
+  <section id="about" class="section container">
+    <div class="card">
+      <h2 class="title">关于我</h2>
+      <p style="margin-bottom: 1rem;"><del style="opacity: 0.5;">高级睡觉工程师 🛌</del></p>
+      <p>
+        我喜欢创建 <a href="https://github.com/molanp?tab=repositories" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">一些有用有趣的项目</a> 
+        或一些玩具。大多项目的产生源于我自身的需要。
+      </p>
+      <p style="border-left: 2px solid var(--border); padding-left: 1rem; color: #94a3b8; font-style: italic; margin-top: 1.5rem;">
+        “在创造中寻找共鸣，以此确认自己对这世界仍有价值。”
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="//afdian.com/a/mikk3" target="_blank" class="btn-donate">Donate Me</a>
       </div>
     </div>
   </section>
-  <!-- 关于我 -->
-  <section id="about" class="section">
-    <div class="container content">
-      <h2 class="title has-text-light">关于我</h2>
-      <p><del>高级睡觉工程师 🛌</del></p>
-      <p>我喜欢创建 <button class="button is-dark is-small">
-          <span class="icon">
-            <i class="fa fa-github"></i>
-          </span>
-          <a href="https://github.com/molanp?tab=repositories" target="_blank">一些有用有趣的项目</a>
-        </button> 或一些玩具。大多项目的产生源于我自身的需要。</p>
-      <p>我只是想让自己被认为有用</p>
-      <p>
-        <span class="tag is-dark">Donate Me&nbsp;<a href="//afdian.com/a/mikk3" target="_blank" rel="noopener">afdian.com/a/mikk3</a></span>
+
+  <section id="works" class="section container">
+    <h2 class="title">作品</h2>
+    <div class="grid">
+      <div class="work-card">
+        <div class="work-title">MCSMAPI</div>
+        <p class="work-desc">专为 MCSM 设计的 Python 开发套件，致力于将复杂的交互抽象为优雅的代码，让面板管理从未如此简单。</p>
+        <div style="font-size: 0.75rem; font-weight: 700;">
+          <a href="//mcsmapi.awkchan.top" target="_blank" style="color: var(--accent); text-decoration: none; margin-right: 1rem;">文档</a>
+          <a href="//github.com/molanp/mcsmapi" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">EMOJI_HUB</div>
+        <p class="work-desc">跨平台的社交媒体表情资源托管中心，旨在为每一次线上交流注入更多情绪与温度。</p>
+        <div style="font-size: 0.75rem; font-weight: 700;">
+          <a href="//emoji.awkchan.top/" target="_blank" style="color: var(--accent); text-decoration: none;">立即访问</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="mailto:molanpp@outlook.com"><i class="fa fa-envelope-o"></i></a>
+      <a href="//github.com/molanp" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
+    <div class="icp">
+      <p>© 2025-2026 Molanp. Created in the dead of night.</p>
+      <p style="margin-top: 10px;">
+        <a href="//icp.gov.moe/?keyword=20250395" target="_blank" style="color: inherit; text-decoration: none; margin: 0 10px;">萌ICP备 20250395号</a>
+        <a href="//icp.redcha.cn/beian/ICP-2025100183.html" target="_blank" style="color: inherit; text-decoration: none; margin: 0 10px;">茶ICP备 2025100183号</a>
       </p>
     </div>
-  </section>
-  <section id="works" class="section">
-    <div class="container content">
-      <h2 class="title has-text-light">作品</h2>
-      <div class="columns is-multiline">
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-6 has-text-light">MCSMAPI</p>
-              <p class="has-text-grey-light">一个帮助开发者更好的使用MCSM的py-SDK</p>
-            </div>
-            <footer class="card-footer">
-              <a href="//mcsmapi.awkchan.top" target="_blank" class="card-footer-item">文档</a>
-              <a href="//github.com/molanp/mcsmapi" target="_blank" class="card-footer-item">链接</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-6 has-text-light">EMOJI_HUB</p>
-              <p class="has-text-grey-light">社交媒体表情资源托管中心</p>
-            </div>
-            <footer class="card-footer">
-              <a href="//emoji.awkchan.top/" target="_blank" class="card-footer-item">链接</a>
-            </footer>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <span class="icon-text">
-        <span class="icon">
-          <i class="fa fa-envelope-o"></i>
-        </span>
-        <a href="mailto:molanpp@outlook.com">molanpp@outlook.com</a>
-      </span>
-      <br>
-      <span class="icon-text">
-        <span class="icon">
-          <i class="fa fa-github"></i>
-        </span>
-        <a href="//github.com/molanp" target="_blank">molanp</a>
-      </span>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="content is-small has-text-centered">
-      <p>© 2025-2026 molanp.Created in the dead of night.</p>
-      <hr>
-      <a href="//icp.gov.moe/?keyword=20250395" target="_blank" rel="noopener" class="underline">萌ICP备 20250395号</a>
-      <a href="//icp.redcha.cn/beian/ICP-2025100183.html" target="_blank" rel="noopener" class="underline">茶ICP备 2025100183号</a>
-    </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      $navbarBurgers.forEach(el => {
-        el.addEventListener('click', () => {
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
